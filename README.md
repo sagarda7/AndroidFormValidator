@@ -3,9 +3,13 @@ Simple Android Form Validator Class
 #How to use
 simply paste the class folder to your project and use following code for validation
 ```java
+void someEvent() {
+	editText1=(EditText) findViewById(.........);
+	editText2=(EditText) findViewById(.........);
+	
 	boolean valid=new FormValidator()
 		.add(editText1,"Guests Required")
-		.add(editText, "Phone Number?")
+		.add(editText2, "Phone Number?")
 		.validate();
 		
 		if(valid) {
@@ -15,12 +19,13 @@ simply paste the class folder to your project and use following code for validat
 		{
 			//do something
 		}
+}
 ```
 
 #The function add has following uses
 ```java
 	FormValidator add(View control, String message,String initialText)
-```java
+```
 
 Where
 	* View control, control you want to validate
