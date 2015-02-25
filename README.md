@@ -28,6 +28,8 @@ void someEvent() {
 ```
 
 Where
+```
 	* View control, control you want to validate
 	* message, string which will be displayed when control is invalid
 	* initialText,initial string like placeholder for button controls, if control has this string, invalid is fired
+```
