@@ -105,7 +105,7 @@ public class FormValidator {
                 }
             }
             else if(rule.getType()==ValidationRule.MIN_LENGTH) {
-                if(!(value.length()<Integer.valueOf(rule.getValue()))){
+                if((value.length()<Integer.valueOf(rule.getValue()))){
                     result.setError(true);
                     result.setMessage(rule.getMessage());
                     break;
