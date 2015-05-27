@@ -29,7 +29,7 @@ public class ValidationRule{
         this.view=v;
     }
 
-    public ValidationRule add(int rule,String value,String message){
+    public ValidationRule add(int rule,String message,String value){
         rules.add(new Rule().setType(rule).setValue(value).setMessage(message));
         return this;
     }
