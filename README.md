@@ -1,5 +1,5 @@
 # AndroidFormValidator
-Simple Android Form Validator Class
+Simple Android Form Validator Library which can validate both EditText and Buttons
 #How to use
 simply paste the class folder to your project and use following code for validation
 ```java
@@ -34,12 +34,12 @@ void someEvent() {
 
 #The function add has following uses
 ```java
-	FormValidator add(View control, String message,String initialText)
+	FormValidator add(ValidationRule rule)
 ```
 
 Where
 ```
-	* View control, control you want to validate
-	* message, string which will be displayed when control is invalid
-	* initialText,initial string like placeholder for button controls, if control has this string, invalid is fired
+	* rule object can be initialized with different rules. Supported Rules are 
+	REQUIRED,EMAIL,MIN_LENGTH,NOT_EQUALTO,EQUALTO and more can be added;
+	
 ```
