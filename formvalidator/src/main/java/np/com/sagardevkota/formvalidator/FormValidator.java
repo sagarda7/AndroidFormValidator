@@ -3,6 +3,8 @@ package np.com.sagardevkota.formvalidator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import np.com.sagardevkota.formvalidator.ValidationRule;
 import np.com.sagardevkota.formvalidator.models.Rule;
 import np.com.sagardevkota.formvalidator.models.ValidationResponse;
@@ -60,6 +62,18 @@ public class FormValidator {
 
 
             }
+            else if(name instanceof TextView) {
+
+                TextView view=(TextView) name;
+                validationResponse=validateInput(view.getText().toString(),rule);
+                if(!validationResponse.isError())
+                    view.setError(null);
+                else
+                    view.setError(validationResponse.getMessage());
+
+
+
+            }
 
             if (validationResponse.isError())
                         result=false;
@@ -89,7 +103,7 @@ public class FormValidator {
                     break;
                 }
             }
-            else if(rule.getType()==ValidationRule.EMAIL) {
+            else if(rule.getType()==ValidationRule.EMAIL || (value.length()==0) || value==null) {
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                 if(!value.matches(emailPattern)){
                     result.setError(true);
@@ -97,7 +111,7 @@ public class FormValidator {
                     break;
                 }
             }
-            else if(rule.getType()==ValidationRule.EQUALTO) {
+            else if(rule.getType()==ValidationRule.EQUALTO || (value.length()==0) || value==null) {
                 if(!value.equals(rule.getValue())){
                     result.setError(true);
                     result.setMessage(rule.getMessage());
@@ -112,7 +126,7 @@ public class FormValidator {
                 }
             }
             else if(rule.getType()==ValidationRule.NOT_EQUALTO) {
-                if((value.equals(rule.getValue()))){
+                if((value.equals(rule.getValue())) || (value.length()==0) || value==null){
                     result.setError(true);
                     result.setMessage(rule.getMessage());
                     break;
