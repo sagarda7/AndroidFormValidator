@@ -6,21 +6,17 @@ simply paste the class folder to your project and use following code for validat
 void someEvent() {
 	editText1=(EditText) findViewById(.........);
 	editText2=(EditText) findViewById(.........);
-	new FormValidator().add(new ValidationRule(txt).add(ValidationRule.REQUIRED,"Required").add(ValidationRule.EMAIL,"Invalid Email")).validate();
+	
 	
 	boolean valid=new FormValidator()
-		.add(
-			 new ValidationRule(editText1)
-			.add(ValidationRule.REQUIRED,"Required")
-			.add(ValidationRule.EMAIL,"Invalid Email")
-		)
-		.add(
-			new ValidationRule(editText2)
-			.add(ValidationRule.REQUIRED,"Required")
-			.add(ValidationRule.MIN_LENGTH,"5","Min 5 chars Required")
-		
-		)
-		.validate();
+			.add(
+				 new ValidationRule(editText1)
+				.add(ValidationRule.REQUIRED,"Required")
+				)
+			.add(
+				new ValidationRule(editText2)
+				.add(ValidationRule.EMAIL,"Invalid Email")
+				).validate();
 		
 		if(valid) {
 			//do some
